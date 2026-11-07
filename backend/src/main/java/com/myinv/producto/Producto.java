@@ -84,6 +84,22 @@ public class Producto {
         this.activo = false;
     }
 
+    /** Entrada de mercadería (compra a proveedor). Solo la usa el registro de movimientos (T07). */
+    public void sumarStock(int cantidad) {
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("La cantidad debe ser mayor a 0");
+        }
+        this.stockActual += cantidad;
+    }
+
+    /** Salida de mercadería (venta). El servicio valida antes que haya stock suficiente (T07). */
+    public void descontarStock(int cantidad) {
+        if (cantidad <= 0 || cantidad > stockActual) {
+            throw new IllegalArgumentException("Cantidad inválida para el stock disponible");
+        }
+        this.stockActual -= cantidad;
+    }
+
     public boolean estaEnStockMinimo() {
         return stockActual <= stockMinimo;
     }
