@@ -1,0 +1,18 @@
+# Backend (Maven / IntelliJ)
+backend/target/
+*.class
+*.log
+.idea/
+*.iml
+
+# Frontend (Node / Vite)
+frontend/node_modules/
+frontend/dist/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.env
+.env.*
+frontend/*.tsbuildinfo
