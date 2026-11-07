@@ -1,31 +1,34 @@
-import { useEffect, useState } from 'react';
-import { obtenerEstado, type EstadoSistema } from './api/health';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './auth/AuthContext';
+import ProtectedRoute from './routes/ProtectedRoute';
+import Layout from './components/Layout';
+import LoginPage from './pages/LoginPage';
+import InicioPage from './pages/InicioPage';
+import ProximamentePage from './pages/ProximamentePage';
+import AccesoDenegadoPage from './pages/AccesoDenegadoPage';
 
-// Pantalla inicial de T01: verifica la conexión Frontend → Backend → PostgreSQL.
 export default function App() {
-  const [estado, setEstado] = useState<EstadoSistema | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    obtenerEstado()
-      .then(setEstado)
-      .catch((e: Error) => setError(e.message));
-  }, []);
-
   return (
-    <main className="centrado">
-      <div className="tarjeta">
-        <h1>MyInv</h1>
-        <p className="subtitulo">Gestión de inventario · Distribuidora La previa</p>
-        {error && <p className="mensaje-error">Backend: {error}</p>}
-        {!error && !estado && <p>Verificando conexión…</p>}
-        {estado && (
-          <ul className="lista-estado">
-            <li>Backend: <strong>{estado.estado}</strong> (v{estado.version})</li>
-            <li>Base de datos: <strong>{estado.baseDeDatos}</strong></li>
-          </ul>
-        )}
-      </div>
-    </main>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <Layout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<InicioPage />} />
+            <Route path="productos" element={<ProximamentePage titulo="Productos" />} />
+            <Route path="movimientos" element={<ProximamentePage titulo="Movimientos de stock" />} />
+            <Route path="reportes" element={<ProximamentePage titulo="Reportes y alertas" />} />
+            <Route path="acceso-denegado" element={<AccesoDenegadoPage />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }

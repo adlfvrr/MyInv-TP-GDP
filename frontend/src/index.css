@@ -125,3 +125,87 @@ select:focus {
 .formulario-login .mensaje-error {
   margin: 1rem 0 0;
 }
+
+/* ---- Estructura de la aplicación y menú por rol (T04) ---- */
+.aplicacion {
+  min-height: 100vh;
+}
+
+.barra-superior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: #24292f;
+  color: #fff;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.menu a {
+  color: #d0d7de;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+}
+
+.menu a:hover {
+  background: #32383f;
+  color: #fff;
+}
+
+.menu a.active {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.usuario-actual {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.insignia {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.insignia-administrador {
+  background: #ddf4ff;
+  color: #0969da;
+}
+
+.insignia-empleado {
+  background: #dafbe1;
+  color: var(--color-ok);
+}
+
+.contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.texto-suave {
+  color: var(--color-suave);
+}
+
+.cargando {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-suave);
+}
