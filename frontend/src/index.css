@@ -1,0 +1,211 @@
+:root {
+  --color-primario: #1f6feb;
+  --color-primario-oscuro: #1a56b8;
+  --color-fondo: #f4f6fa;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1f2328;
+  --color-suave: #656d76;
+  --color-borde: #d0d7de;
+  --color-error: #cf222e;
+  --color-ok: #1a7f37;
+  --color-alerta: #9a6700;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+.centrado {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.subtitulo {
+  color: var(--color-suave);
+  margin-top: -0.5rem;
+}
+
+.mensaje-error {
+  color: var(--color-error);
+  background: #ffebe9;
+  border: 1px solid #ffcecb;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+
+.lista-estado {
+  padding-left: 1.2rem;
+  line-height: 1.8;
+}
+
+/* ---- Formularios y botones (T04) ---- */
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0.9rem 0 0.3rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 1px;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--color-borde);
+  background: #f6f8fa;
+  color: var(--color-texto);
+  cursor: pointer;
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boton-primario {
+  background: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+}
+
+.boton-primario:hover:not(:disabled) {
+  background: var(--color-primario-oscuro);
+}
+
+.boton-ancho {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.formulario-login .mensaje-error {
+  margin: 1rem 0 0;
+}
+
+/* ---- Estructura de la aplicación y menú por rol (T04) ---- */
+.aplicacion {
+  min-height: 100vh;
+}
+
+.barra-superior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: #24292f;
+  color: #fff;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.menu a {
+  color: #d0d7de;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+}
+
+.menu a:hover {
+  background: #32383f;
+  color: #fff;
+}
+
+.menu a.active {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.usuario-actual {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.insignia {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.insignia-administrador {
+  background: #ddf4ff;
+  color: #0969da;
+}
+
+.insignia-empleado {
+  background: #dafbe1;
+  color: var(--color-ok);
+}
+
+.contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.texto-suave {
+  color: var(--color-suave);
+}
+
+.cargando {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-suave);
+}
