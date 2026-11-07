@@ -209,3 +209,134 @@ select:focus {
   text-align: center;
   color: var(--color-suave);
 }
+
+/* ---- Catálogo de productos (T06) ---- */
+.encabezado-seccion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.encabezado-seccion h2 {
+  margin: 0;
+}
+
+.filtros {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.tabla th,
+.tabla td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-borde);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabla th {
+  background: #f6f8fa;
+  font-weight: 700;
+}
+
+.tabla .numero {
+  text-align: right;
+}
+
+.tabla .acciones {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.fila-alerta {
+  background: #fff8c5;
+}
+
+.insignia-alerta {
+  margin-left: 0.5rem;
+  background: #ffebe9;
+  color: var(--color-error);
+}
+
+.sin-resultados {
+  text-align: center !important;
+  color: var(--color-suave);
+}
+
+.boton-chico {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.82rem;
+}
+
+.boton-peligro {
+  color: var(--color-error);
+  border-color: #ffcecb;
+}
+
+.mensaje-ok {
+  color: var(--color-ok);
+  background: #dafbe1;
+  border: 1px solid #aceebb;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+
+.fondo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 35, 40, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.modal {
+  max-width: 640px;
+  max-height: 95vh;
+  overflow-y: auto;
+}
+
+.fila-campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0 0.8rem;
+}
+
+.error-campo {
+  display: block;
+  color: var(--color-error);
+  font-size: 0.82rem;
+  margin-top: 0.25rem;
+}
+
+.acciones-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+@media (max-width: 700px) {
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+}
