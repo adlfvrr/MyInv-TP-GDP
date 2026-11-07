@@ -4,6 +4,8 @@
 -- Ejecutar sobre una base vacía:  psql -U postgres -d myinv -f 01_schema.sql
 -- =====================================================================
 
+USE DATABASE myinv;
+
 BEGIN;
 
 DROP TABLE IF EXISTS movimiento   CASCADE;
