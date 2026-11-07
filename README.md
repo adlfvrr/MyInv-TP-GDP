@@ -17,7 +17,7 @@ Sistema web para la distribuidora **"La previa"** (25 de Mayo y 9 de Julio). Ree
 
 | Capa | Tecnología |
 | :-- | :-- |
-| Backend | Java 17 · Spring Boot 3.5 (Web, Data JPA, Validation) |
+| Backend | Java 17 · Spring Boot 3.5 (Web, Data JPA, Validation, Security) · JWT (jjwt) |
 | Base de datos | PostgreSQL 16 |
 | Frontend | React 18 · TypeScript · Vite |
 
