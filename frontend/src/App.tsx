@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import LoginPage from './pages/LoginPage';
 import InicioPage from './pages/InicioPage';
 import ProductosPage from './pages/ProductosPage';
-import ProximamentePage from './pages/ProximamentePage';
+import MovimientosPage from './pages/MovimientosPage';
 import ReportesPage from './pages/ReportesPage';
 import AccesoDenegadoPage from './pages/AccesoDenegadoPage';
 
@@ -24,7 +24,7 @@ export default function App() {
           >
             <Route index element={<InicioPage />} />
             <Route path="productos" element={<ProductosPage />} />
-            <Route path="movimientos" element={<ProximamentePage titulo="Movimientos de stock" />} />
+            <Route path="movimientos" element={<MovimientosPage />} />
             <Route path="reportes" element={<ReportesPage />} />
             <Route path="acceso-denegado" element={<AccesoDenegadoPage />} />
           </Route>
