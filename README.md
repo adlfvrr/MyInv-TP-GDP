@@ -26,7 +26,7 @@ Sistema web para la distribuidora **"La previa"** (25 de Mayo y 9 de Julio). Ree
 ```
 /backend    API REST en Java (Spring Boot + Maven)
 /frontend   Aplicación web en React + TypeScript (Vite)
-/database   Scripts SQL de PostgreSQL
+/database   Scripts SQL de PostgreSQL: 01_schema.sql (tablas) y 02_seed.sql (datos de prueba)
 /docs       Contrato de la API y capturas de evidencia
 ```
 
@@ -37,7 +37,10 @@ Sistema web para la distribuidora **"La previa"** (25 de Mayo y 9 de Julio). Ree
 ### 1. Base de datos
 ```bash
 psql -U postgres -c "CREATE DATABASE myinv;"
+psql -U postgres -d myinv -f database/01_schema.sql
+psql -U postgres -d myinv -f database/02_seed.sql
 ```
+Usuarios de prueba: `admin` / `Admin123!` (ADMINISTRADOR) y `empleado` / `Empleado123!` (EMPLEADO). Más detalles en [`database/README.md`](database/README.md).
 
 ### 2. Backend (puerto 8080)
 ```bash
