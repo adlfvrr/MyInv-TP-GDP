@@ -28,3 +28,22 @@ export interface MovimientoDatos {
 export function registrarMovimiento(datos: MovimientoDatos): Promise<Movimiento> {
   return apiFetch<Movimiento>('/movimientos', { method: 'POST', body: JSON.stringify(datos) });
 }
+
+export interface FiltrosHistorial {
+  tipo?: TipoMovimiento;
+  /** Fecha YYYY-MM-DD, inclusive. */
+  desde?: string;
+  /** Fecha YYYY-MM-DD, inclusive. */
+  hasta?: string;
+  productoId?: number;
+}
+
+// Historial de movimientos (T11): del más reciente al más antiguo.
+export function listarMovimientos(filtros: FiltrosHistorial = {}): Promise<Movimiento[]> {
+  const parametros = new URLSearchParams();
+  Object.entries(filtros).forEach(([clave, valor]) => {
+    if (valor !== undefined && valor !== '') parametros.set(clave, String(valor));
+  });
+  const consulta = parametros.toString();
+  return apiFetch<Movimiento[]>(`/movimientos${consulta ? `?${consulta}` : ''}`);
+}

@@ -29,4 +29,9 @@ export const MENU: ItemMenu[] = [
     etiqueta: { ADMINISTRADOR: 'Reportes y alertas', EMPLEADO: 'Alertas de stock' },
     roles: ['ADMINISTRADOR', 'EMPLEADO'],
   },
+  {
+    ruta: '/historial',
+    etiqueta: { ADMINISTRADOR: 'Historial', EMPLEADO: 'Historial' },
+    roles: ['ADMINISTRADOR', 'EMPLEADO'],
+  },
 ];

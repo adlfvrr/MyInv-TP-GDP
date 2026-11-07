@@ -7,6 +7,7 @@ import InicioPage from './pages/InicioPage';
 import ProductosPage from './pages/ProductosPage';
 import MovimientosPage from './pages/MovimientosPage';
 import ReportesPage from './pages/ReportesPage';
+import HistorialPage from './pages/HistorialPage';
 import AccesoDenegadoPage from './pages/AccesoDenegadoPage';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="productos" element={<ProductosPage />} />
             <Route path="movimientos" element={<MovimientosPage />} />
             <Route path="reportes" element={<ReportesPage />} />
+            <Route path="historial" element={<HistorialPage />} />
             <Route path="acceso-denegado" element={<AccesoDenegadoPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
