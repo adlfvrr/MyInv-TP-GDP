@@ -1,0 +1,97 @@
+/* ---- Módulo 4: alertas de reposición y reporte de existencias (T10) ---- */
+.aviso-reposicion {
+  color: var(--color-alerta);
+  background: #fff8c5;
+  border: 1px solid #eac54f;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-weight: 600;
+}
+
+.grilla-alertas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta-alerta {
+  background: #fff;
+  border: 1px solid #ffcecb;
+  border-left: 6px solid var(--color-error);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+
+.tarjeta-alerta h4 {
+  margin: 0;
+}
+
+.tarjeta-alerta .texto-suave {
+  margin: 0.2rem 0 0.6rem;
+}
+
+.cifras-alerta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.cifras-alerta .faltante {
+  color: var(--color-error);
+}
+
+.resumen-existencias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.indicador {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+
+.indicador-valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.indicador-titulo {
+  color: var(--color-suave);
+  font-size: 0.85rem;
+}
+
+.indicador-alerta {
+  border-color: #ffcecb;
+  background: #ffebe9;
+}
+
+.indicador-alerta .indicador-valor {
+  color: var(--color-error);
+}
+
+.banner-alertas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+/* ---- Historial de movimientos (T11) ---- */
+.filtro-fecha {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-weight: 400;
+}

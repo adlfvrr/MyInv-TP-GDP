@@ -1,6 +1,6 @@
 # Database — MyInv
 
-Scripts SQL de **PostgreSQL 16**. Son la única fuente del esquema: el backend **no** crea tablas, solo las valida al arrancar (`ddl-auto: validate`).
+Scripts SQL de **PostgreSQL 16**. Son la única fuente del esquema: el backend **no** crea ni modifica tablas (`spring.jpa.hibernate.ddl-auto: none` en `application.yml`).
 
 | Script | Contenido |
 | :-- | :-- |

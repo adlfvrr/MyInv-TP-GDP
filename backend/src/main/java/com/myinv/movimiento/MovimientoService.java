@@ -8,10 +8,14 @@ import com.myinv.producto.Producto;
 import com.myinv.producto.ProductoRepository;
 import com.myinv.usuario.Usuario;
 import com.myinv.usuario.UsuarioRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Registro de entradas y salidas de stock (T07). */
+import java.time.LocalDate;
+import java.util.List;
+
+/** Registro de entradas y salidas de stock (T07) e historial filtrable (T11). */
 @Service
 public class MovimientoService {
 
@@ -55,6 +59,15 @@ public class MovimientoService {
         Movimiento movimiento = new Movimiento(producto, usuario, r.tipo(), cantidad, producto.getStockActual(),
                 textoOpcional(r.proveedor()), textoOpcional(r.observacion()));
         return MovimientoResponse.de(movimientoRepository.save(movimiento));
+    }
+
+    /** Historial del más reciente al más antiguo, con filtros opcionales (T11). */
+    @Transactional(readOnly = true)
+    public List<MovimientoResponse> listar(TipoMovimiento tipo, LocalDate desde, LocalDate hasta, Long productoId) {
+        var filtros = MovimientoSpecs.conFiltros(tipo, desde, hasta, productoId);
+        return movimientoRepository.findAll(filtros, Sort.by(Sort.Direction.DESC, "fecha", "id")).stream()
+                .map(MovimientoResponse::de)
+                .toList();
     }
 
     private static String textoOpcional(String texto) {
